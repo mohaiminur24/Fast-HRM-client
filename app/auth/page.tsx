@@ -36,9 +36,8 @@ export default function LoginScreen() {
           className="mx-5 md:mx-20 flex flex-1 flex-col"
           style={{ maxWidth: 600 }}
         >
-          <h2 className="font-serif text-5xl mt-5 md:mt-20">Welcome back,</h2>
-          <h3 className="mt-2 font-mono ml-2">First HRM</h3>
-          <div className="py-20 w-auto">
+          <h2 className="font-serif text-5xl mt-5 md:mt-20">Login to Dashboard</h2>
+          <div className="py-10 w-auto">
             <FormikProvider value={formik}>
               <Field
                 name="Email"

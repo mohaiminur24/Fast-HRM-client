@@ -11,6 +11,7 @@ import { useWindowSize } from "@/utils/screen-size";
 import { Field, FormikProvider, useFormik } from "formik";
 import Link from "next/link";
 import { useState } from "react";
+import { RiCloseCircleLine } from "react-icons/ri";
 
 export default function Registration() {
   const theme = useAppSelector((state) => state.theme);
@@ -31,13 +32,12 @@ export default function Registration() {
 
   const otp = useFormik({
     initialValues: {
-      otp: ""
+      otp: "",
     },
     onSubmit: (value) => {
       console.log(value);
-      otp.resetForm();
       SetOpenModal(false);
-    }
+    },
   });
 
   return (
@@ -54,9 +54,9 @@ export default function Registration() {
             className="mx-5 md:mx-20 flex flex-1 flex-col"
             style={{ maxWidth: 600 }}
           >
-            <h2 className="font-serif text-5xl mt-5 md:mt-20">Welcome back,</h2>
+            <h2 className="font-serif text-5xl mt-5 md:mt-20">Register Now and Get Started!</h2>
             <h3 className="mt-2 font-mono ml-2">First HRM</h3>
-            <div className="py-20 w-auto">
+            <div className="py-10 w-auto">
               <FormikProvider value={formik}>
                 <Field
                   name="Email"
@@ -113,12 +113,18 @@ export default function Registration() {
       </div>
       {/* modal is from here */}
       <Modal IsOpen={IsOpenModal}>
-        <div className="flex flex-1 h-full justify-center items-center">
+        <div className="flex flex-1 h-full justify-center items-center cursor-pointer">
+          <div
+            className="absolute right-5 top-0 hover:scale-105"
+            onClick={() => SetOpenModal(false)}
+          >
+            <RiCloseCircleLine size={35} />
+          </div>
           <div
             style={{ width: width / 2 }}
             className="flex flex-col justify-center items-center gap-5"
           >
-            <h1 className="text-3xl font-semibold">Verify Your Account</h1>
+            <h1 className="text-3xl font-semibold text-center">Verify Your Account</h1>
             <h2 className="text-gray-400 text-center text-xs">
               We've just sent a 6-digit one-time password (OTP) to your
               registered email address. Please check your inbox, and if you
@@ -127,7 +133,7 @@ export default function Registration() {
               you didn't receive the email, you can request a new OTP after a
               few moments.
             </h2>
-            <div>
+            <div className="my-5">
               <FormikProvider value={otp}>
                 <Field name="otp" component={OTPInputField} length={6} />
               </FormikProvider>
