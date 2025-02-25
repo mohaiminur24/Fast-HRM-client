@@ -8,7 +8,7 @@ interface props{
 
 export default function LoginLottieAnimation({width=164, height=164}:props) {
   return (
-    <div className="flex justify-center items-center h-screen overflow-hidden">
+    <div className="flex flex-1 justify-center items-center overflow-hidden">
       <Lottie animationData={LoginAnimation} loop={true} style={{width:width, height:height}} />
     </div>
   );

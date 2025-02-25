@@ -6,6 +6,7 @@ interface Theme {
   text: string;
   success: string;
   warning: string;
+  buttonText:string
 }
 
 export const theme: Theme[] = [{
@@ -15,6 +16,7 @@ export const theme: Theme[] = [{
   secondary: "#578FCA",
   text: "#000000",
   success: "#5cb85c",
-  warning: "#c93c08"
+  warning: "#c93c08",
+  buttonText:"#ffffff"
 }];
   

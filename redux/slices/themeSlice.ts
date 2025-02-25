@@ -8,6 +8,7 @@ interface ThemeState {
   text: string;
   success: string;
   warning: string;
+  buttonText:string;
 }
 
 const initialState: ThemeState = {
@@ -18,6 +19,7 @@ const initialState: ThemeState = {
   text: "#000000",
   success: "#5cb85c",
   warning: "#c93c08",
+  buttonText:"#ffffff"
 };
 
 const themeSlice = createSlice({
